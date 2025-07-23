@@ -30,7 +30,7 @@ The system is made of **two parts**:
   - Uses a 6-DOF dynamics model to simulate full motion.
   - Visualizes and plots the simulated and actual orientation for comparison and tuning.
 
-![how the simulator works](images/1.png)
+![how the simulator works](images/1.png "how the simulator works")
 
 The **autopilot software runs on the PC**, not on the Raspberry Pi. This makes it easier to develop and debug control logic.  
 The Pi simply executes the incoming commands through its motor control loop and reports back sensor readings.
@@ -50,9 +50,9 @@ The hardware includes:
 - **Battery & power module**
 - **Fng6612b**
 
-![commiunication of harware parts](images/2.png)
+![commiunication of harware parts](images/2.png "commiunication of harware parts")
 
-![Hardware in detail](images/3.png)
+![Hardware in detail](images/3.png "Hardware in detail")
 
 
 ---
@@ -66,11 +66,11 @@ The hardware includes:
 - Receives commands from the server
 - Sends current orientation data back to the server
 
-![Data Flow](images/5.png)
+![Data Flow](images/5.png "Data Flow")
 
-![main architecture](images/6.png)
+![main architecture](images/6.png "main architecture")
 
-![Control Flow  ](images/7.png)
+![Control Flow  ](images/7.png "Control Flow")
 
 ### On the Server (PC):
 - Runs the **autopilot algorithm**
