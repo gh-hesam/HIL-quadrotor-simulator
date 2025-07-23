@@ -1,0 +1,9 @@
+imusenso
+busio
+adafruit_pca9685
+smbus
+socket
+redis
+----------------
+# sudo apt-get install redis-server -> supervised = systemd
+
