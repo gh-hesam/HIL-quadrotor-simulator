@@ -52,7 +52,6 @@ class quadrotor:
         zdd = (math.cos(theta)*math.cos(phi))*(F/self.mass)-self.g
 
         print(xdd , ydd, zdd)
-        #print(phi, theta, psii) 
         xd = self.xd[-1] + self.delta_t*xdd
         self.xd.append(xd)
         yd = self.yd[-1] + self.delta_t*ydd
@@ -87,6 +86,10 @@ class quadrotor:
 
 
     def send_RPY_command(self, roll, pitch, yaw, thrust):
+        """
+        send command to apply on raspberrypi
+        hardware simulator (or quadrotor) will try to make these angels 
+        """
         self.thrust = thrust
         data = str(roll) + str(',')+str(pitch) + str(',')+str(yaw) + str(',')+str(thrust) + str(',')
         self.trans_s.sendto(data.encode('utf-8'), (self.trans_ip, self.trans_port))
@@ -98,6 +101,7 @@ if __name__ == "__main__":
         # get data
         my_quad.send_RPY_command(0,0,0,10.251)
         my_quad.get_3dof_data()
+        # apply movement in simulation
         my_quad.move(my_quad.phi[-1], my_quad.theta[-1], my_quad.psii[-1], my_quad.thrust)
     # plot x, y, z separatly
     plt.plot(my_quad.x)
